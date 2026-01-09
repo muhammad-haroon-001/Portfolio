@@ -740,10 +740,6 @@
     // Update current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-    // Console log for debugging
-    console.log('%c🚀 Portfolio Initialized Successfully!', 'color: #4361ee; font-size: 14px; font-weight: bold;');
-    console.log('%c👨‍💻 Muhammad Haroon - Senior Software Engineer', 'color: #7209b7; font-size: 12px;');
-
 })();
 
 // Make downloadResume function globally available
