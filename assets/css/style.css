@@ -656,7 +656,7 @@ img {
 .tech-stack-floating {
     position: absolute;
     right: 2rem;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
@@ -2846,3 +2846,4 @@ img[src] {
     opacity: 1 !important;
     transform: none !important;
 }
+.bx-download{font-size: 20px;}
