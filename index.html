@@ -392,7 +392,6 @@
     </section>
 
     <!-- Skills Section -->
-    <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
             <div class="section-header">
@@ -997,13 +996,24 @@
                 <span class="section-subtitle">Portfolio</span>
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-description">
-                    A selection of recent projects showcasing my expertise in 
-                    full-stack development and problem-solving capabilities.
+                    A selection of enterprise-grade applications showcasing my expertise in 
+                    full-stack development, SaaS architecture, and scalable system design.
                 </p>
             </div>
             
+            <!-- Project Filter Tabs -->
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="saas">SaaS Platforms</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="cms">CMS & SEO</button>
+                <button class="filter-btn" data-filter="ai">AI Integration</button>
+                <button class="filter-btn" data-filter="enterprise">Enterprise</button>
+            </div>
+            
             <div class="projects-grid">
-                <div class="project-card" data-category="saas">
+                <!-- Project Management System (PMS) -->
+                <div class="project-card" data-category="saas enterprise">
                     <div class="project-image">
                         <img src="assets/img/projects/pms.jpg" alt="Project Management System" loading="lazy">
                         <div class="project-overlay">
@@ -1021,22 +1031,120 @@
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>PMS – Skyinfinit</h3>
-                            <span class="project-badge">SaaS</span>
+                            <h3>Project Management System</h3>
+                            <span class="project-badge">Enterprise SaaS</span>
                         </div>
                         <p class="project-description">
-                            Real-time project management system with task workflows, 
-                            collaboration tools, and employee activity tracking.
+                            Comprehensive enterprise project management platform with real-time collaboration, 
+                            Gantt charts, resource allocation, and automated reporting. Features include 
+                            time tracking, milestone management, and integrated communication tools.
                         </p>
                         <div class="project-tech">
                             <span>Next.js</span>
                             <span>Express.js</span>
                             <span>WebSockets</span>
                             <span>PostgreSQL</span>
+                            <span>Redis</span>
+                            <span>Docker</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Real-time Updates</span>
+                            <span>Role-based Access</span>
+                            <span>Analytics Dashboard</span>
+                            <span>API Integration</span>
                         </div>
                     </div>
                 </div>
                 
+                <!-- EduSphere LMS -->
+                <div class="project-card" data-category="saas enterprise">
+                    <div class="project-image">
+                        <img src="assets/img/projects/edusphere.jpg" alt="Learning Management System" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://lms.skyinfinit.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>EduSphere Learning Management System</h3>
+                            <span class="project-badge">Enterprise SaaS</span>
+                        </div>
+                        <p class="project-description">
+                            Scalable LMS platform supporting thousands of concurrent users with course creation, 
+                            student enrollment, progress tracking, and certification management. Includes 
+                            interactive quizzes, video streaming, and comprehensive analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>React</span>
+                            <span>MySQL</span>
+                            <span>AWS S3</span>
+                            <span>Redis</span>
+                            <span>WebRTC</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Multi-tenant Architecture</span>
+                            <span>Video Conferencing</span>
+                            <span>SCORM Compliance</span>
+                            <span>Advanced Analytics</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Zyro HRM -->
+                <div class="project-card" data-category="saas enterprise">
+                    <div class="project-image">
+                        <img src="assets/img/projects/zyro-hrm.jpg" alt="Human Resource Management" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://hrm.skyinfinit.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Zyro Human Resource Management</h3>
+                            <span class="project-badge">Enterprise SaaS</span>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive HRM solution with employee management, payroll processing, 
+                            attendance tracking, performance reviews, and recruitment modules. Features 
+                            automated workflows, compliance management, and detailed reporting.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>Vue.js</span>
+                            <span>MySQL</span>
+                            <span>Redis</span>
+                            <span>PDF Generation</span>
+                            <span>Queue System</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Payroll Automation</span>
+                            <span>Biometric Integration</span>
+                            <span>Performance Tracking</span>
+                            <span>Compliance Reporting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Chunk N Cheese Restaurant -->
                 <div class="project-card" data-category="ecommerce">
                     <div class="project-image">
                         <img src="assets/img/projects/cnc.jpg" alt="Restaurant Application" loading="lazy">
@@ -1055,28 +1163,39 @@
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>Chunk N Cheese Restaurant</h3>
+                            <h3>Chunk N Cheese Restaurant Platform</h3>
                             <span class="project-badge">E-commerce</span>
                         </div>
                         <p class="project-description">
-                            Full-featured restaurant application with live order tracking, 
-                            WebSockets integration, and loyalty management system.
+                            Full-featured restaurant management system with online ordering, 
+                            table reservation, delivery tracking, and inventory management. 
+                            Includes loyalty programs, real-time order updates via WebSockets, 
+                            and integrated payment processing.
                         </p>
                         <div class="project-tech">
                             <span>Next.js</span>
                             <span>Express.js</span>
                             <span>MongoDB</span>
                             <span>Stripe</span>
+                            <span>WebSockets</span>
+                            <span>Redis Cache</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Real-time Order Tracking</span>
+                            <span>Loyalty Management</span>
+                            <span>Inventory Control</span>
+                            <span>Multi-location Support</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="project-card" data-category="saas">
+                <!-- Chunk N Cheese Admin -->
+                <div class="project-card" data-category="ecommerce">
                     <div class="project-image">
-                        <img src="assets/img/projects/edusphere.jpg" alt="Learning Management System" loading="lazy">
+                        <img src="assets/img/projects/cnc-admin.jpg" alt="Restaurant Admin Dashboard" loading="lazy">
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link">
+                                <a href="https://cncadmin.skyinfinit.com" target="_blank" class="project-link">
                                     <i class="bx bx-link-external"></i>
                                     <span>Live Demo</span>
                                 </a>
@@ -1089,19 +1208,229 @@
                     </div>
                     <div class="project-content">
                         <div class="project-header">
-                            <h3>EduSphere LMS</h3>
-                            <span class="project-badge">SaaS</span>
+                            <h3>Chunk N Cheese Admin Dashboard</h3>
+                            <span class="project-badge">Admin Panel</span>
                         </div>
                         <p class="project-description">
-                            Comprehensive learning management system with course management, 
-                            student enrollments, and progress tracking features.
+                            Advanced admin dashboard for restaurant chain management with 
+                            real-time analytics, staff management, sales reporting, and 
+                            inventory control. Features role-based access, automated reporting, 
+                            and comprehensive business intelligence tools.
+                        </p>
+                        <div class="project-tech">
+                            <span>React Admin</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Chart.js</span>
+                            <span>JWT Auth</span>
+                            <span>WebSockets</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Real-time Analytics</span>
+                            <span>Multi-store Management</span>
+                            <span>Automated Reports</span>
+                            <span>Staff Scheduling</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SEO Tools Platform -->
+                <div class="project-card" data-category="cms saas">
+                    <div class="project-image">
+                        <img src="assets/img/projects/seo-tools.jpg" alt="SEO Tools Platform" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://seo-tools.skyinfinit.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Enterprise SEO Tools Platform</h3>
+                            <span class="project-badge">SaaS CMS</span>
+                        </div>
+                        <p class="project-description">
+                            Comprehensive SEO management platform with 15+ EMD-based tools including 
+                            keyword research, backlink analysis, rank tracking, and site auditing. 
+                            Features Microsoft Scalability, Cloudflare integration, and premium 
+                            subscription management.
                         </p>
                         <div class="project-tech">
                             <span>Laravel</span>
                             <span>React</span>
                             <span>MySQL</span>
-                            <span>AWS S3</span>
+                            <span>Redis</span>
+                            <span>Stripe</span>
+                            <span>Cloudflare API</span>
                         </div>
+                        <div class="project-features">
+                            <span>15+ SEO Tools</span>
+                            <span>User Tracking</span>
+                            <span>Premium Features</span>
+                            <span>Third-party APIs</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backlink Portal -->
+                <div class="project-card" data-category="cms saas">
+                    <div class="project-image">
+                        <img src="assets/img/projects/backlink-portal.jpg" alt="Backlink Portal" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://seo.skyinfinit.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Backlink Portal & SEO Management</h3>
+                            <span class="project-badge">SEO Platform</span>
+                        </div>
+                        <p class="project-description">
+                            Advanced backlink management platform with automated outreach, 
+                            link tracking, competitor analysis, and SEO reporting. Includes 
+                            domain authority monitoring, guest post management, and comprehensive 
+                            SEO campaign tracking.
+                        </p>
+                        <div class="project-tech">
+                            <span>Laravel</span>
+                            <span>Vue.js</span>
+                            <span>MySQL</span>
+                            <span>Redis Queue</span>
+                            <span>SEO APIs</span>
+                            <span>Email Integration</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Automated Outreach</span>
+                            <span>Competitor Analysis</span>
+                            <span>Campaign Tracking</span>
+                            <span>SEO Reporting</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- GPT API Centralized System -->
+                <div class="project-card" data-category="ai saas">
+                    <div class="project-image">
+                        <img src="assets/img/projects/gpt-api.jpg" alt="GPT API System" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://gpt.skyinfinit.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>GPT API Centralized Management System</h3>
+                            <span class="project-badge">AI Integration</span>
+                        </div>
+                        <p class="project-description">
+                            Centralized platform for managing multiple AI API integrations including 
+                            OpenAI, Gemini, and custom AI models. Features usage tracking, cost 
+                            optimization, API key management, and real-time monitoring.
+                        </p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>Express.js</span>
+                            <span>MongoDB</span>
+                            <span>Redis</span>
+                            <span>OpenAI API</span>
+                            <span>Gemini API</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Multi-API Support</span>
+                            <span>Usage Analytics</span>
+                            <span>Cost Optimization</span>
+                            <span>Real-time Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scheudly Task Management -->
+                <div class="project-card" data-category="saas enterprise">
+                    <div class="project-image">
+                        <img src="assets/img/projects/scheudly.jpg" alt="Task Management System" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://scheudly.com" target="_blank" class="project-link">
+                                    <i class="bx bx-link-external"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="bx bx-code"></i>
+                                    <span>View Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>Scheudly Task Management System</h3>
+                            <span class="project-badge">SaaS Platform</span>
+                        </div>
+                        <p class="project-description">
+                            Advanced task management SaaS with intelligent scheduling, team 
+                            collaboration, project tracking, and automated workflows. Features 
+                            include calendar integration, time blocking, and productivity analytics.
+                        </p>
+                        <div class="project-tech">
+                            <span>Next.js</span>
+                            <span>NestJS</span>
+                            <span>PostgreSQL</span>
+                            <span>Redis</span>
+                            <span>WebSockets</span>
+                            <span>Calendar API</span>
+                        </div>
+                        <div class="project-features">
+                            <span>Intelligent Scheduling</span>
+                            <span>Team Collaboration</span>
+                            <span>Productivity Analytics</span>
+                            <span>Calendar Integration</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Statistics -->
+            <div class="project-stats">
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Enterprise Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Users Supported</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Third-party Integrations</div>
                     </div>
                 </div>
             </div>
@@ -1110,6 +1439,10 @@
                 <a href="https://github.com/muhammad-haroon-001" target="_blank" class="btn btn-outline">
                     <i class="bx bxl-github"></i>
                     <span>View More on GitHub</span>
+                </a>
+                <a href="#contact" class="btn btn-primary scrollto">
+                    <i class="bx bx-message"></i>
+                    <span>Discuss Your Project</span>
                 </a>
             </div>
         </div>
