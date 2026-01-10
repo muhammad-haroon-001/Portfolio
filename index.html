@@ -370,14 +370,50 @@
     </section>
 
     <!-- Skills Section -->
+    <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
             <div class="section-header">
-                <span class="section-subtitle">Technical Skills</span>
-                <h2 class="section-title">Expertise & Technologies</h2>
+                <span class="section-subtitle">Technical Expertise</span>
+                <h2 class="section-title">Skills & Technologies</h2>
                 <p class="section-description">
-                    A comprehensive overview of my technical skills and proficiency across various technologies
+                    Proficient in full-stack development with expertise in modern web technologies and cloud infrastructure
                 </p>
+            </div>
+            
+            <!-- Category Filter Tabs -->
+            <div class="skills-filter">
+                <button class="filter-btn active" data-filter="all">All Skills</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="database">Database & Tools</button>
+                <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+            </div>
+            
+            <!-- Skills Progress Visualization -->
+            <div class="skills-visualization">
+                <div class="visualization-container">
+                    <div class="radial-chart" data-percent="95">
+                        <div class="chart-inner">
+                            <span class="chart-value">95%</span>
+                            <span class="chart-label">Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="proficiency-labels">
+                        <div class="label-item">
+                            <span class="label-dot" style="background: var(--primary-color)"></span>
+                            <span>Expert (90-100%)</span>
+                        </div>
+                        <div class="label-item">
+                            <span class="label-dot" style="background: var(--secondary-color)"></span>
+                            <span>Advanced (80-89%)</span>
+                        </div>
+                        <div class="label-item">
+                            <span class="label-dot" style="background: var(--accent-color)"></span>
+                            <span>Proficient (70-79%)</span>
+                        </div>
+                    </div>
+                </div>
             </div>
             
             <div class="skills-grid">
@@ -386,51 +422,92 @@
                     <div class="category-header">
                         <div class="category-icon">
                             <i class="bx bx-server"></i>
+                            <div class="icon-badge">4+ Years</div>
                         </div>
                         <div class="category-info">
                             <h3>Backend Development</h3>
-                            <p class="category-description">Server-side technologies & frameworks</p>
+                            <p class="category-description">Server-side technologies & API development</p>
+                            <div class="category-tags">
+                                <span class="tag">APIs</span>
+                                <span class="tag">Microservices</span>
+                                <span class="tag">Authentication</span>
+                            </div>
                         </div>
+                        <button class="category-expand-btn">
+                            <i class="bx bx-chevron-down"></i>
+                        </button>
                     </div>
                     
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="php">
                             <div class="skill-info">
-                                <span class="skill-name">Laravel</span>
-                                <span class="skill-percent">95%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">PHP / Laravel</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">95%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="95"></div>
+                                <div class="skill-progress" data-percent="95" style="width: 95%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>Laravel ecosystem, Eloquent ORM, API development , Role & Permission</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="express">
                             <div class="skill-info">
-                                <span class="skill-name">PHP</span>
-                                <span class="skill-percent">95%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">Node.js / Express.js</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>1 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">90%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="95"></div>
+                                <div class="skill-progress" data-percent="90" style="width: 90%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>REST APIs, Middleware, Authentication, Performance optimization</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="api">
                             <div class="skill-info">
-                                <span class="skill-name">Express.js</span>
-                                <span class="skill-percent">90%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">API Development</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">92%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="90"></div>
+                                <div class="skill-progress" data-percent="92" style="width: 92%">
+                                    <div class="progress-pulse"></div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">REST API</span>
-                                <span class="skill-percent">92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-percent="92"></div>
+                            <div class="skill-details">
+                                <p>RESTful APIs, GraphQL, API documentation, Rate limiting, WebSockets</p>
                             </div>
                         </div>
                     </div>
@@ -441,51 +518,92 @@
                     <div class="category-header">
                         <div class="category-icon">
                             <i class="bx bx-code-alt"></i>
+                            <div class="icon-badge">5+ Years</div>
                         </div>
                         <div class="category-info">
                             <h3>Frontend Development</h3>
-                            <p class="category-description">Client-side technologies & frameworks</p>
+                            <p class="category-description">Modern frameworks & responsive design</p>
+                            <div class="category-tags">
+                                <span class="tag">SPA</span>
+                                <span class="tag">PWA</span>
+                                <span class="tag">SSR</span>
+                            </div>
                         </div>
+                        <button class="category-expand-btn">
+                            <i class="bx bx-chevron-down"></i>
+                        </button>
                     </div>
                     
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="react">
                             <div class="skill-info">
-                                <span class="skill-name">Next.js</span>
-                                <span class="skill-percent">92%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">React.js / Next.js</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>2 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">92%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="92"></div>
+                                <div class="skill-progress" data-percent="92" style="width: 92%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>Hooks, Context API, Server Components, SEO optimization, Performance</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="javascript">
                             <div class="skill-info">
-                                <span class="skill-name">React.js</span>
-                                <span class="skill-percent">90%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">JavaScript / Jquery</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">88%</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="90"></div>
+                                <div class="skill-progress" data-percent="88" style="width: 88%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>ES6+, Modern syntax, Async programming, Design patterns</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="css">
                             <div class="skill-info">
-                                <span class="skill-name">TypeScript</span>
-                                <span class="skill-percent">85%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">CSS Frameworks</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>5 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">90%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="85"></div>
+                                <div class="skill-progress" data-percent="90" style="width: 90%">
+                                    <div class="progress-pulse"></div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Tailwind CSS</span>
-                                <span class="skill-percent">88%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-percent="88"></div>
+                            <div class="skill-details">
+                                <p>Tailwind CSS, Bootstrap, CSS Grid, Flexbox, Responsive design</p>
                             </div>
                         </div>
                     </div>
@@ -496,143 +614,201 @@
                     <div class="category-header">
                         <div class="category-icon">
                             <i class="bx bx-data"></i>
+                            <div class="icon-badge">4+ Years</div>
                         </div>
                         <div class="category-info">
-                            <h3>Database & Tools</h3>
-                            <p class="category-description">Data management & development tools</p>
+                            <h3>Database & DevOps</h3>
+                            <p class="category-description">Data management & development workflow</p>
+                            <div class="category-tags">
+                                <span class="tag">SQL</span>
+                                <span class="tag">NoSQL</span>
+                                <span class="tag">CI/CD</span>
+                            </div>
                         </div>
+                        <button class="category-expand-btn">
+                            <i class="bx bx-chevron-down"></i>
+                        </button>
                     </div>
                     
                     <div class="skill-items">
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="mysql">
                             <div class="skill-info">
-                                <span class="skill-name">MySQL</span>
-                                <span class="skill-percent">90%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">MySQL / PostgreSQL</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">92%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="90"></div>
+                                <div class="skill-progress" data-percent="92" style="width: 92%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>Query optimization, Indexing, Transactions, Database design, Supabase</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="mongodb">
                             <div class="skill-info">
-                                <span class="skill-name">PostgreSQL</span>
-                                <span class="skill-percent">85%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">MongoDB / NoSQL</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">85%</span>
+                                    <span class="skill-level">Advanced</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="85"></div>
+                                <div class="skill-progress" data-percent="85" style="width: 85%">
+                                    <div class="progress-pulse"></div>
+                                </div>
+                            </div>
+                            <div class="skill-details">
+                                <p>Aggregation, Indexing, Data modeling, Atlas, Mongoose ODM</p>
                             </div>
                         </div>
                         
-                        <div class="skill-item">
+                        <div class="skill-item" data-skill="git">
                             <div class="skill-info">
-                                <span class="skill-name">MongoDB</span>
-                                <span class="skill-percent">80%</span>
+                                <div class="skill-name-wrapper">
+                                    <span class="skill-name">Version Control</span>
+                                    <div class="skill-experience">
+                                        <i class="bx bx-time"></i>
+                                        <span>4 years</span>
+                                    </div>
+                                </div>
+                                <div class="skill-percent-wrapper">
+                                    <span class="skill-percent">94%</span>
+                                    <span class="skill-level">Expert</span>
+                                </div>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" data-percent="80"></div>
+                                <div class="skill-progress" data-percent="94" style="width: 94%">
+                                    <div class="progress-pulse"></div>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="skill-item">
-                            <div class="skill-info">
-                                <span class="skill-name">Git & GitHub</span>
-                                <span class="skill-percent">90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-percent="90"></div>
+                            <div class="skill-details">
+                                <p>Git workflows, GitHub Actions, Code review, Branch strategies</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             
-            <!-- Technologies Grid -->
-            <div class="technologies-grid">
+            <!-- Technologies Cloud -->
+            <div class="technologies-cloud">
                 <div class="technologies-header">
-                    <h3>Infrastructure & Additional Skills</h3>
-                    <p class="technologies-subtitle">Server management and cloud expertise</p>
+                    <h3>Infrastructure & Platforms</h3>
+                    <p class="technologies-subtitle">Cloud services, deployment, and specialized tools</p>
                 </div>
                 
-                <div class="tech-items">
-                    <div class="tech-item">
-                        <div class="tech-icon">
+                <div class="tech-cloud">
+                    <div class="cloud-item large" data-category="infrastructure">
+                        <div class="cloud-icon">
                             <i class="bx bx-server"></i>
                         </div>
-                        <div class="tech-content">
-                            <h4>AWS</h4>
-                            <p>Cloud Services</p>
+                        <h4>Cloud Infrastructure</h4>
+                        <p>Hetzner, DigitalOcean, Cloudways</p>
+                        <div class="cloud-tags">
+                            <span>VPS</span>
+                            <span>Load Balancers</span>
+                            <span>CDN</span>
                         </div>
                     </div>
                     
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-hdd"></i>
+                    <div class="cloud-item" data-category="infrastructure">
+                        <div class="cloud-icon">
+                            <i class="bx bx-cog"></i>
                         </div>
-                        <div class="tech-content">
-                            <h4>cPanel</h4>
-                            <p>Server Management</p>
-                        </div>
+                        <h4>Server Management</h4>
+                        <p>cPanel, hpanel , FTP , WindowServer, Appache, Nginx</p>
                     </div>
                     
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-cloud"></i>
-                        </div>
-                        <div class="tech-content">
-                            <h4>Cloudways</h4>
-                            <p>Cloud Hosting</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-data"></i>
-                        </div>
-                        <div class="tech-content">
-                            <h4>Docker</h4>
-                            <p>Containerization</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-cloud-upload"></i>
-                        </div>
-                        <div class="tech-content">
-                            <h4>DigitalOcean</h4>
-                            <p>Cloud Services</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-cube"></i>
-                        </div>
-                        <div class="tech-content">
-                            <h4>SaaS Development</h4>
-                            <p>Software as a Service</p>
-                        </div>
-                    </div>
-                    
-                    <div class="tech-item">
-                        <div class="tech-icon">
+                    <div class="cloud-item" data-category="tools">
+                        <div class="cloud-icon">
                             <i class="bx bx-search-alt"></i>
                         </div>
-                        <div class="tech-content">
-                            <h4>SEO Tools</h4>
-                            <p>Search Optimization</p>
+                        <h4>SEO Tools</h4>
+                        <p>Custom SaaS platforms</p>
+                    </div>
+                    
+                    <div class="cloud-item" data-category="tools">
+                        <div class="cloud-icon">
+                            <i class="bx bx-bot"></i>
+                        </div>
+                        <h4>AI Integration</h4>
+                        <p>OpenAI, Gemini, Custom AI</p>
+                    </div>
+                    
+                    <div class="cloud-item large" data-category="saas">
+                        <div class="cloud-icon">
+                            <i class="bx bx-cube"></i>
+                        </div>
+                        <h4>Enterprise SaaS</h4>
+                        <p>ERP, CRM, LMS, POS systems</p>
+                        <div class="cloud-tags">
+                            <span>Multi-tenant</span>
+                            <span>Scalable</span>
+                            <span>Secure</span>
                         </div>
                     </div>
                     
-                    <div class="tech-item">
-                        <div class="tech-icon">
-                            <i class="bx bx-bot"></i>
+                    <div class="cloud-item" data-category="monitoring">
+                        <div class="cloud-icon">
+                            <i class="bx bx-line-chart"></i>
                         </div>
-                        <div class="tech-content">
-                            <h4>AI Integration</h4>
-                            <p>Machine Learning APIs</p>
+                        <h4>Monitoring</h4>
+                        <p>Performance & Analytics</p>
+                    </div>
+                    
+                    <div class="cloud-item" data-category="security">
+                        <div class="cloud-icon">
+                            <i class="bx bx-shield"></i>
                         </div>
+                        <h4>Security</h4>
+                        <p>SSL, Firewalls, Backup</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Legend & Info -->
+            <div class="skills-legend">
+                <div class="legend-item">
+                    <div class="legend-icon">
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <div class="legend-content">
+                        <h4>Proficiency Levels</h4>
+                        <p>Based on years of experience and project complexity</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">
+                        <i class="bx bx-time"></i>
+                    </div>
+                    <div class="legend-content">
+                        <h4>Experience Duration</h4>
+                        <p>Years indicate practical, real-world project experience</p>
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-icon">
+                        <i class="bx bx-check-shield"></i>
+                    </div>
+                    <div class="legend-content">
+                        <h4>Production Ready</h4>
+                        <p>All skills tested in live production environments</p>
                     </div>
                 </div>
             </div>
@@ -676,7 +852,16 @@
                             <span>Next.js</span>
                             <span>Express.js</span>
                             <span>WebSockets</span>
-                            <span>AWS</span>
+                            <span>Next.js</span>
+                            <span>API Development</span>
+                            <span>MySQL</span>
+                            <span>Postgresql</span>
+                            <span>MongoDB</span>
+                            <span>Git</span>
+                            <span>JavaScript</span>
+                            <span>Jquery</span>
+                            <span>Bootstrap</span>
+                            <span>TailwindCSS</span>
                         </div>
                     </div>
                 </div>
@@ -702,9 +887,16 @@
                         </div>
                         <div class="timeline-tags">
                             <span>Laravel</span>
+                            <span>PHP</span>
+                            <span>React.js</span>
+                            <span>Next.js</span>
                             <span>API Development</span>
                             <span>MySQL</span>
-                            <span>Docker</span>
+                            <span>Git</span>
+                            <span>JavaScript</span>
+                            <span>Jquery</span>
+                            <span>Bootstrap</span>
+                            <span>TailwindCSS</span>
                         </div>
                     </div>
                 </div>
@@ -733,6 +925,11 @@
                             <span>PHP</span>
                             <span>REST APIs</span>
                             <span>Git</span>
+                            <span>MySQL</span>
+                            <span>JavaScript</span>
+                            <span>Jquery</span>
+                            <span>Bootstrap</span>
+                            <span>TailwindCSS</span>
                         </div>
                     </div>
                 </div>
@@ -758,9 +955,12 @@
                         </div>
                         <div class="timeline-tags">
                             <span>PHP</span>
+                            <span>Laravel</span>
                             <span>MySQL</span>
                             <span>JavaScript</span>
+                            <span>Jquery</span>
                             <span>Bootstrap</span>
+                            <span>TailwindCSS</span>
                         </div>
                     </div>
                 </div>
@@ -1041,7 +1241,6 @@
     <!-- Main JavaScript -->
     <script src="assets/js/main.js"></script>
     <script>
-        // Particles.js Configuration
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof particlesJS !== 'undefined') {
                 particlesJS('particles-js', {
