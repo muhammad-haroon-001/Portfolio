@@ -49,15 +49,14 @@
     </div>
 
     <!-- Floating Actions -->
-    <div class="floating-actions">
+    <!-- <div class="floating-actions">
         <button class="theme-toggle" id="themeToggle">
-            <i class="bx bx-sun"></i>
             <i class="bx bx-moon"></i>
         </button>
         <a href="#contact" class="contact-float scrollto">
             <i class="bx bx-message-rounded"></i>
         </a>
-    </div>
+    </div> -->
 
     <!-- Header -->
     <header id="header" class="header">
@@ -1240,99 +1239,5 @@
 
     <!-- Main JavaScript -->
     <script src="assets/js/main.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof particlesJS !== 'undefined') {
-                particlesJS('particles-js', {
-                    particles: {
-                        number: {
-                            value: 80,
-                            density: {
-                                enable: true,
-                                value_area: 800
-                            }
-                        },
-                        color: {
-                            value: ["#4361ee", "#7209b7", "#4cc9f0", "#3a56d4"]
-                        },
-                        shape: {
-                            type: "circle",
-                            stroke: {
-                                width: 0,
-                                color: "#000000"
-                            }
-                        },
-                        opacity: {
-                            value: 0.5,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 1,
-                                opacity_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        size: {
-                            value: 3,
-                            random: true,
-                            anim: {
-                                enable: true,
-                                speed: 2,
-                                size_min: 0.1,
-                                sync: false
-                            }
-                        },
-                        line_linked: {
-                            enable: true,
-                            distance: 150,
-                            color: "#4361ee",
-                            opacity: 0.2,
-                            width: 1
-                        },
-                        move: {
-                            enable: true,
-                            speed: 1,
-                            direction: "none",
-                            random: true,
-                            straight: false,
-                            out_mode: "out",
-                            bounce: false,
-                            attract: {
-                                enable: false,
-                                rotateX: 600,
-                                rotateY: 1200
-                            }
-                        }
-                    },
-                    interactivity: {
-                        detect_on: "canvas",
-                        events: {
-                            onhover: {
-                                enable: true,
-                                mode: "grab"
-                            },
-                            onclick: {
-                                enable: true,
-                                mode: "push"
-                            },
-                            resize: true
-                        },
-                        modes: {
-                            grab: {
-                                distance: 140,
-                                line_linked: {
-                                    opacity: 0.4
-                                }
-                            },
-                            push: {
-                                particles_nb: 4
-                            }
-                        }
-                    },
-                    retina_detect: true
-                });
-            }
-        });
-    </script>
 </body>
 </html>

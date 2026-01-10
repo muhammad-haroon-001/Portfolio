@@ -28,10 +28,10 @@
         initHeaderScroll();
         initSmoothScroll();
         initActiveNavLinks();
-        initThemeToggle();
+        initThemeToggle(); // Initialize theme (dark mode only)
         initTypedText();
         initCounters();
-        initSkillBars(); // This will now use the enhanced version
+        initSkillBars();
         initScrollAnimations();
         initResumeDownload();
         initContactForm();
@@ -39,11 +39,17 @@
         initAnimateOnScroll();
         initFormAnimations();
         initTechStackAnimation();
-
-        // NEW FUNCTIONS
+        
+        // Skills functions
         initSkillsFilter();
         initExpandableCategories();
         initTechItemHover();
+        
+        // Initialize particles after everything is loaded
+        initParticles();
+        
+        // Set dark mode as default
+        setDarkModeDefault();
     }
 
     // Run initialization when DOM is loaded
@@ -51,6 +57,228 @@
         document.addEventListener('DOMContentLoaded', initAll);
     } else {
         initAll();
+    }
+
+    // ======================
+    // Set Dark Mode as Default
+    // ======================
+    
+    function setDarkModeDefault() {
+        // Always set dark mode
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        
+        // Update theme toggle button (only moon icon)
+        const themeToggle = document.getElementById('themeToggle');
+        if (themeToggle) {
+            themeToggle.classList.add('active');
+        }
+        
+        // Initialize particles for dark mode
+        if (typeof particlesJS !== 'undefined') {
+            initParticles();
+        }
+    }
+
+    // ======================
+    // Theme Toggle - Dark Mode Only (Theme toggle removed)
+    // ======================
+    
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Remove the sun icon from HTML and keep only moon
+        if (themeToggle) {
+            // Keep only moon icon
+            const sunIcon = themeToggle.querySelector('.bx-sun');
+            if (sunIcon) {
+                sunIcon.remove();
+            }
+            
+            // Remove click event listener for theme toggle
+            themeToggle.style.cursor = 'default';
+            themeToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Show a message or do nothing
+                showThemeNotification();
+            });
+        }
+        
+        // Function to show notification about dark mode only
+        function showThemeNotification() {
+            // Remove existing notifications
+            const existingNotification = document.querySelector('.theme-notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+            
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'theme-notification';
+            notification.innerHTML = `
+                <i class="bx bx-moon"></i>
+                <span>Dark Mode Only - Designed for optimal viewing</span>
+                <button class="notification-close">&times;</button>
+            `;
+            
+            // Add styles
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--primary-color);
+                color: white;
+                padding: 1rem 1.5rem;
+                border-radius: var(--radius-md);
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+                z-index: 9999;
+                box-shadow: var(--shadow-lg);
+                animation: slideInRight 0.3s ease;
+                max-width: 400px;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Close button
+            notification.querySelector('.notification-close').addEventListener('click', () => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            });
+            
+            // Auto remove after 3 seconds
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.style.animation = 'slideOutRight 0.3s ease';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 3000);
+        }
+        
+        // Add keyframes for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            
+            @keyframes slideOutRight {
+                from {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // ======================
+    // Particles Configuration (Dark Mode Only)
+    // ======================
+    
+    function initParticles() {
+        if (typeof particlesJS === 'undefined') return;
+        
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ["#60a5fa", "#a855f7", "#22d3ee", "#3b82f6"]
+                },
+                shape: {
+                    type: "circle",
+                    stroke: {
+                        width: 0,
+                        color: "#000000"
+                    }
+                },
+                opacity: {
+                    value: 0.4,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#60a5fa",
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 1,
+                    direction: "none",
+                    random: true,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "grab"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 140,
+                        line_linked: {
+                            opacity: 0.4
+                        }
+                    },
+                    push: {
+                        particles_nb: 4
+                    }
+                }
+            },
+            retina_detect: true
+        });
     }
 
     // ======================
@@ -171,53 +399,6 @@
                     history.pushState(null, null, targetId);
                 }
             });
-        });
-    }
-
-    // ======================
-    // Theme Toggle
-    // ======================
-    
-    function initThemeToggle() {
-        const themeToggle = document.getElementById('themeToggle');
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-        
-        // Get saved theme or use system preference
-        let currentTheme = localStorage.getItem('theme');
-        if (!currentTheme) {
-            currentTheme = prefersDarkScheme.matches ? 'dark' : 'light';
-        }
-        
-        // Apply theme
-        if (currentTheme === 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle?.classList.add('active');
-        }
-        
-        // Toggle theme
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function() {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                themeToggle.classList.toggle('active');
-                
-                // Dispatch custom event for other components
-                document.dispatchEvent(new CustomEvent('themechange', {
-                    detail: { theme: newTheme }
-                }));
-            });
-        }
-        
-        // Listen for system theme changes
-        prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                const newTheme = e.matches ? 'dark' : 'light';
-                document.documentElement.setAttribute('data-theme', newTheme);
-                themeToggle?.classList.toggle('active', newTheme === 'dark');
-            }
         });
     }
 
@@ -349,6 +530,232 @@
         
         document.querySelectorAll('.skill-category').forEach(category => {
             skillObserver.observe(category);
+        });
+    }
+
+    // ======================
+    // Skills Filter Functionality
+    // ======================
+
+    function initSkillsFilter() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const skillCategories = document.querySelectorAll('.skill-category');
+        const techItems = document.querySelectorAll('.cloud-item');
+        
+        if (!filterButtons.length) return;
+        
+        // Function to filter skills
+        function filterSkills(filter) {
+            // Update active button
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.getAttribute('data-filter') === filter) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Show/hide skill categories with animation
+            skillCategories.forEach(category => {
+                const categoryType = category.getAttribute('data-category');
+                
+                if (filter === 'all' || categoryType === filter) {
+                    category.style.display = 'block';
+                    setTimeout(() => {
+                        category.style.opacity = '1';
+                        category.style.transform = 'translateY(0)';
+                    }, 10);
+                } else {
+                    category.style.opacity = '0';
+                    category.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        category.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Show/hide tech items with animation
+            techItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (filter === 'all' || itemCategory === filter) {
+                    item.style.display = 'flex';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+            
+            // Update visualization if needed
+            updateVisualization(filter);
+        }
+        
+        // Update visualization based on filter
+        function updateVisualization(filter) {
+            const radialChart = document.querySelector('.radial-chart');
+            const chartValue = document.querySelector('.chart-value');
+            
+            if (!radialChart || !chartValue) return;
+            
+            let averagePercent = 90; // Default for all
+            
+            switch(filter) {
+                case 'backend':
+                    averagePercent = 92;
+                    break;
+                case 'frontend':
+                    averagePercent = 90;
+                    break;
+                case 'database':
+                    averagePercent = 89;
+                    break;
+                case 'infrastructure':
+                    averagePercent = 88;
+                    break;
+            }
+            
+            // Animate the chart
+            chartValue.textContent = `${averagePercent}%`;
+            radialChart.style.background = `conic-gradient(var(--primary-color) 0% ${averagePercent}%, var(--bg-tertiary) ${averagePercent}% 100%)`;
+            
+            // Add animation effect
+            radialChart.style.transform = 'scale(1.1)';
+            setTimeout(() => {
+                radialChart.style.transform = 'scale(1)';
+            }, 300);
+        }
+        
+        // Add click event to filter buttons
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                filterSkills(filter);
+                
+                // Add click feedback
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+        
+        // Initialize all categories with animation
+        function initializeCategories() {
+            skillCategories.forEach((category, index) => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(20px)';
+                category.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                
+                setTimeout(() => {
+                    category.style.opacity = '1';
+                    category.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            techItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.9)';
+                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                }, index * 50 + 300);
+            });
+            
+            // Initialize with all skills showing
+            filterSkills('all');
+        }
+        
+        // Initialize on page load
+        setTimeout(initializeCategories, 100);
+    }
+
+    // ======================
+    // Expandable Skill Categories
+    // ======================
+
+    function initExpandableCategories() {
+        const expandButtons = document.querySelectorAll('.category-expand-btn');
+        
+        expandButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.closest('.skill-category');
+                const items = category.querySelector('.skill-items');
+                const icon = this.querySelector('i');
+                
+                category.classList.toggle('expanded');
+                
+                if (category.classList.contains('expanded')) {
+                    items.style.maxHeight = items.scrollHeight + 'px';
+                    icon.classList.remove('bx-chevron-down');
+                    icon.classList.add('bx-chevron-up');
+                    
+                    // Animate skill bars when expanded
+                    const skillBars = category.querySelectorAll('.skill-progress');
+                    skillBars.forEach(bar => {
+                        const percent = bar.getAttribute('data-percent');
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = percent + '%';
+                        }, 300);
+                    });
+                } else {
+                    items.style.maxHeight = '0';
+                    icon.classList.remove('bx-chevron-up');
+                    icon.classList.add('bx-chevron-down');
+                }
+            });
+        });
+        
+        // Add CSS for smooth expansion
+        const style = document.createElement('style');
+        style.textContent = `
+            .skill-items {
+                max-height: 1000px;
+                overflow: hidden;
+                transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .skill-category.expanded {
+                box-shadow: var(--shadow-2xl);
+                border-color: var(--primary-color);
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
+    // ======================
+    // Hover Effects for Tech Items
+    // ======================
+
+    function initTechItemHover() {
+        const techItems = document.querySelectorAll('.tech-item, .cloud-item');
+        
+        techItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                const allItems = this.parentElement.querySelectorAll('.tech-item, .cloud-item');
+                allItems.forEach(otherItem => {
+                    if (otherItem !== this) {
+                        otherItem.style.opacity = '0.6';
+                        otherItem.style.transform = 'scale(0.95)';
+                    }
+                });
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                const allItems = this.parentElement.querySelectorAll('.tech-item, .cloud-item');
+                allItems.forEach(otherItem => {
+                    otherItem.style.opacity = '1';
+                    otherItem.style.transform = 'scale(1)';
+                });
+            });
         });
     }
 
@@ -739,374 +1146,6 @@
         document.querySelectorAll('img[data-src]').forEach(img => {
             img.classList.add('lazy-load');
             imageObserver.observe(img);
-        });
-    }
-
-    // ======================
-    // Skills Filter Functionality
-    // ======================
-
-    function initSkillsFilter() {
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const skillCategories = document.querySelectorAll('.skill-category');
-        const techItems = document.querySelectorAll('.cloud-item');
-        
-        if (!filterButtons.length) return;
-        
-        // Function to filter skills
-        function filterSkills(filter) {
-            // Update active button
-            filterButtons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.getAttribute('data-filter') === filter) {
-                    btn.classList.add('active');
-                }
-            });
-            
-            // Show/hide skill categories with animation
-            skillCategories.forEach(category => {
-                const categoryType = category.getAttribute('data-category');
-                
-                if (filter === 'all' || categoryType === filter) {
-                    category.style.display = 'block';
-                    setTimeout(() => {
-                        category.style.opacity = '1';
-                        category.style.transform = 'translateY(0)';
-                    }, 10);
-                } else {
-                    category.style.opacity = '0';
-                    category.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        category.style.display = 'none';
-                    }, 300);
-                }
-            });
-            
-            // Show/hide tech items with animation
-            techItems.forEach(item => {
-                const itemCategory = item.getAttribute('data-category');
-                
-                if (filter === 'all' || itemCategory === filter) {
-                    item.style.display = 'flex';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-            
-            // Update visualization if needed
-            updateVisualization(filter);
-        }
-        
-        // Update visualization based on filter
-        function updateVisualization(filter) {
-            const radialChart = document.querySelector('.radial-chart');
-            const chartValue = document.querySelector('.chart-value');
-            
-            if (!radialChart || !chartValue) return;
-            
-            let averagePercent = 90; // Default for all
-            
-            switch(filter) {
-                case 'backend':
-                    averagePercent = 92;
-                    break;
-                case 'frontend':
-                    averagePercent = 90;
-                    break;
-                case 'database':
-                    averagePercent = 89;
-                    break;
-                case 'infrastructure':
-                    averagePercent = 88;
-                    break;
-            }
-            
-            // Animate the chart
-            chartValue.textContent = `${averagePercent}%`;
-            radialChart.style.background = `conic-gradient(var(--primary-color) 0% ${averagePercent}%, var(--bg-tertiary) ${averagePercent}% 100%)`;
-            
-            // Add animation effect
-            radialChart.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                radialChart.style.transform = 'scale(1)';
-            }, 300);
-        }
-        
-        // Add click event to filter buttons
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filter = this.getAttribute('data-filter');
-                filterSkills(filter);
-                
-                // Add click feedback
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
-        
-        // Initialize all categories with animation
-        function initializeCategories() {
-            skillCategories.forEach((category, index) => {
-                category.style.opacity = '0';
-                category.style.transform = 'translateY(20px)';
-                category.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                
-                setTimeout(() => {
-                    category.style.opacity = '1';
-                    category.style.transform = 'translateY(0)';
-                }, index * 100);
-            });
-            
-            techItems.forEach((item, index) => {
-                item.style.opacity = '0';
-                item.style.transform = 'scale(0.9)';
-                item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                
-                setTimeout(() => {
-                    item.style.opacity = '1';
-                    item.style.transform = 'scale(1)';
-                }, index * 50 + 300);
-            });
-        }
-        
-        // Initialize on page load
-        initializeCategories();
-        
-        // Add keyboard navigation for filters
-        document.addEventListener('keydown', function(e) {
-            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
-            
-            const activeIndex = Array.from(filterButtons).findIndex(btn => btn.classList.contains('active'));
-            let newIndex = activeIndex;
-            
-            switch(e.key) {
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    newIndex = activeIndex > 0 ? activeIndex - 1 : filterButtons.length - 1;
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    newIndex = activeIndex < filterButtons.length - 1 ? activeIndex + 1 : 0;
-                    break;
-                case '1':
-                    e.preventDefault();
-                    newIndex = 0; // All
-                    break;
-                case '2':
-                    e.preventDefault();
-                    newIndex = 1; // Backend
-                    break;
-                case '3':
-                    e.preventDefault();
-                    newIndex = 2; // Frontend
-                    break;
-                case '4':
-                    e.preventDefault();
-                    newIndex = 3; // Database
-                    break;
-                case '5':
-                    e.preventDefault();
-                    newIndex = 4; // Infrastructure
-                    break;
-                default:
-                    return;
-            }
-            
-            const filter = filterButtons[newIndex].getAttribute('data-filter');
-            filterSkills(filter);
-            
-            // Add focus effect
-            filterButtons[newIndex].focus();
-        });
-        
-        // Add touch/swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        const skillsSection = document.getElementById('skills');
-        if (skillsSection) {
-            skillsSection.addEventListener('touchstart', function(e) {
-                touchStartX = e.changedTouches[0].screenX;
-            });
-            
-            skillsSection.addEventListener('touchend', function(e) {
-                touchEndX = e.changedTouches[0].screenX;
-                handleSwipe();
-            });
-        }
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            const swipeDistance = touchEndX - touchStartX;
-            
-            if (Math.abs(swipeDistance) < swipeThreshold) return;
-            
-            const activeIndex = Array.from(filterButtons).findIndex(btn => btn.classList.contains('active'));
-            let newIndex = activeIndex;
-            
-            if (swipeDistance > 0) {
-                // Swipe right - previous filter
-                newIndex = activeIndex > 0 ? activeIndex - 1 : filterButtons.length - 1;
-            } else {
-                // Swipe left - next filter
-                newIndex = activeIndex < filterButtons.length - 1 ? activeIndex + 1 : 0;
-            }
-            
-            const filter = filterButtons[newIndex].getAttribute('data-filter');
-            filterSkills(filter);
-        }
-    }
-
-    // ======================
-    // Expandable Skill Categories
-    // ======================
-
-    function initExpandableCategories() {
-        const expandButtons = document.querySelectorAll('.category-expand-btn');
-        
-        expandButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const category = this.closest('.skill-category');
-                const items = category.querySelector('.skill-items');
-                const icon = this.querySelector('i');
-                
-                category.classList.toggle('expanded');
-                
-                if (category.classList.contains('expanded')) {
-                    items.style.maxHeight = items.scrollHeight + 'px';
-                    icon.classList.remove('bx-chevron-down');
-                    icon.classList.add('bx-chevron-up');
-                    
-                    // Animate skill bars when expanded
-                    const skillBars = category.querySelectorAll('.skill-progress');
-                    skillBars.forEach(bar => {
-                        const percent = bar.getAttribute('data-percent');
-                        bar.style.width = '0%';
-                        setTimeout(() => {
-                            bar.style.width = percent + '%';
-                        }, 300);
-                    });
-                } else {
-                    items.style.maxHeight = '0';
-                    icon.classList.remove('bx-chevron-up');
-                    icon.classList.add('bx-chevron-down');
-                }
-            });
-        });
-        
-        // Add CSS for smooth expansion
-        const style = document.createElement('style');
-        style.textContent = `
-            .skill-items {
-                max-height: 1000px;
-                overflow: hidden;
-                transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            
-            .skill-category.expanded {
-                box-shadow: var(--shadow-2xl);
-                border-color: var(--primary-color);
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    // ======================
-    // Skill Bar Progress Animation
-    // ======================
-
-    function initSkillBars() {
-        // Override the existing function with enhanced version
-        function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            
-            skillBars.forEach(bar => {
-                const percent = bar.getAttribute('data-percent');
-                
-                // Reset to 0 for animation
-                bar.style.width = '0%';
-                
-                // Animate to target width
-                setTimeout(() => {
-                    bar.style.width = percent + '%';
-                    
-                    // Add completion animation
-                    bar.classList.add('animated');
-                    setTimeout(() => {
-                        bar.classList.remove('animated');
-                    }, 1000);
-                }, 300);
-            });
-        }
-        
-        // Intersection Observer for skill bars
-        const skillObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSkillBars();
-                    skillObserver.unobserve(entry.target);
-                }
-            });
-        }, { 
-            threshold: 0.3,
-            rootMargin: '50px'
-        });
-        
-        document.querySelectorAll('.skill-category').forEach(category => {
-            skillObserver.observe(category);
-        });
-        
-        // Add pulse animation styles
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes progressPulse {
-                0% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0.4); }
-                70% { box-shadow: 0 0 0 10px rgba(var(--primary-rgb), 0); }
-                100% { box-shadow: 0 0 0 0 rgba(var(--primary-rgb), 0); }
-            }
-            
-            .skill-progress.animated {
-                animation: progressPulse 1s ease-out;
-            }
-        `;
-        document.head.appendChild(style);
-    }
-
-    // ======================
-    // Hover Effects for Tech Items
-    // ======================
-
-    function initTechItemHover() {
-        const techItems = document.querySelectorAll('.tech-item, .cloud-item');
-        
-        techItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                const allItems = this.parentElement.querySelectorAll('.tech-item, .cloud-item');
-                allItems.forEach(otherItem => {
-                    if (otherItem !== this) {
-                        otherItem.style.opacity = '0.6';
-                        otherItem.style.transform = 'scale(0.95)';
-                    }
-                });
-            });
-            
-            item.addEventListener('mouseleave', function() {
-                const allItems = this.parentElement.querySelectorAll('.tech-item, .cloud-item');
-                allItems.forEach(otherItem => {
-                    otherItem.style.opacity = '1';
-                    otherItem.style.transform = 'scale(1)';
-                });
-            });
         });
     }
 
