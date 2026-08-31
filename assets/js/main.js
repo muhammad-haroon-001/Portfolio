@@ -15,8 +15,8 @@
                     
                     setTimeout(() => {
                         preloader.style.display = 'none';
-                    }, 500);
-                }, 1000);
+                    }, 400);
+                }, 700);
             });
         }
     }
@@ -44,9 +44,6 @@
         initSkillsFilter();
         initExpandableCategories();
         initTechItemHover();
-        
-        // Initialize particles after everything is loaded
-        initParticles();
         
         // Set dark mode as default
         setDarkModeDefault();
@@ -414,8 +411,8 @@
             'Full-Stack Developer',
             'Laravel Expert',
             'Next.js Specialist',
-            'API Architect',
-            'SaaS Developer'
+            'AI / RAG Engineer',
+            'SaaS Architect'
         ];
         
         let textIndex = 0;
@@ -466,20 +463,23 @@
     // ======================
     
     function initCounters() {
-        const counters = document.querySelectorAll('.stat-number');
+        const counters = document.querySelectorAll('.stat-number[data-count]');
         
         function animateCounter(counter) {
-            const target = parseInt(counter.getAttribute('data-count'));
+            const target = Number(counter.getAttribute('data-count'));
+            if (!Number.isFinite(target)) return;
+
+            const suffix = counter.getAttribute('data-suffix') || '';
             const increment = target / 200;
             let current = 0;
             
             const timer = setInterval(() => {
                 current += increment;
                 if (current >= target) {
-                    counter.textContent = target;
+                    counter.textContent = suffix ? `${target}${suffix}` : String(target);
                     clearInterval(timer);
                 } else {
-                    counter.textContent = Math.floor(current);
+                    counter.textContent = String(Math.floor(current));
                 }
             }, 10);
         }
